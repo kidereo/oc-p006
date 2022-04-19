@@ -1,6 +1,8 @@
-# Base de code du projet P6 - Parcours Front-end
+# OpenClassrooms 
+Work in progress to deliver the following:
 
-## Démarrer le projet
+## Project
+006 - Créez un site accessible pour une plateforme de photographes
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
-
+## Path 
+Développeur d'application - JavaScript React
