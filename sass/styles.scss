@@ -1,3 +1,11 @@
 //Import normalize.css directly from GitHub
 //noinspection CssUnknownTarget
 @import "normalize";
+
+@import "01_utils/variables";
+@import "03_base/core";
+@import "03_base/container";
+@import "03_base/typography";
+@import "05_layout/header";
+@import "05_layout/photographer_section";
+@import "06_pages/photographer";
