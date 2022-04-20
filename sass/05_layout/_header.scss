@@ -10,3 +10,15 @@ header {
   height: 50px;
   //margin-left: 100px;
 }
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+  header {
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  header {
+    justify-content: space-around;
+  }
+}
