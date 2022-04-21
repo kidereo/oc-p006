@@ -22,8 +22,10 @@ async function displayData(photographers) {
 async function init() {
     // Get the data from api.js
     const {photographers} = await getData();
+    // Pass the data on and show photographer cards
     displayData(photographers);
 }
 
-// Lift-off!
+// Set the document title and lift-off!
+document.title = "FishEye | Home";
 init();

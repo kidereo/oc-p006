@@ -35,7 +35,7 @@ function photographerFactory(data) {
 
         // Add attributes to the link
         Object.assign(link, {
-            href: "photographer.html?id=" + id,
+            href: "photographer.html" + "?id=" + id,
             title: name
         });
 
