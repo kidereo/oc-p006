@@ -6,11 +6,11 @@
  */
 function photographerFactory(data) {
     // Construct data
-    const {name, portrait, city, tagline, price} = data;
-    const picture = `media/Photographers_ID_Photos/${portrait}`;
+    const {id, name, portrait, city, tagline, price} = data;
+    const id_photo = `media/Photographers_ID_Photos/${portrait}`;
 
     /**
-     * Buld up individual photographer cards.
+     * Build up individual photographer cards.
      *
      * @returns {HTMLElement}
      */
@@ -20,41 +20,53 @@ function photographerFactory(data) {
         const img = document.createElement("img");
         const h2 = document.createElement("h2");
         const location = document.createElement("p");
-        const tline = document.createElement("p");
+        const tag_line = document.createElement("p");
         const fee = document.createElement("p");
+        const link = document.createElement("a");
 
         // Hydrate individual elements
+        // Add attributes to the image
         Object.assign(img, {
-            src: picture,
+            src: id_photo,
             alt: "Photo of " + name
         });
         //img.setAttribute("src", picture);
         //img.setAttribute("alt", "Photo of " + name);
 
+        // Add attributes to the link
+        Object.assign(link, {
+            href: "photographer.html?id=" + id,
+            title: name
+        });
+
+        // Hydrate relevant text fields and add relevant classes
         h2.textContent = name;
 
         location.textContent = city;
         location.classList.add("photographers-section-location");
 
-        tline.textContent = tagline;
-        tline.classList.add("photographers-section-tagline");
+        tag_line.textContent = tagline;
+        tag_line.classList.add("photographers-section-tagline");
 
         fee.textContent = price + "€/jour";
         fee.classList.add("photographers-section-price");
 
-        // Attach individual elements
-        article.appendChild(img);
+        // Combine and attach individual elements to the DOM
+        //article.appendChild(img);
+        link.appendChild(img);
+        article.appendChild(link);
         article.appendChild(h2);
         article.appendChild(location);
-        article.appendChild(tline);
+        article.appendChild(tag_line);
         article.appendChild(fee);
 
         return (article);
     }
 
     return {
+        id,
         name,
-        picture,
+        id_photo,
         city,
         tagline,
         price,
