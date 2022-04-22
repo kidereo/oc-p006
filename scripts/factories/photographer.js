@@ -36,7 +36,7 @@ function photographerFactory(data) {
         // Add attributes to the link
         Object.assign(link, {
             href: "photographer.html" + "?id=" + id,
-            title: name
+            title: "Click to see " + name + "'s works"
         });
 
         // Hydrate relevant text fields and add relevant classes

@@ -20,8 +20,14 @@
     </header>
 
     <main id="main">
-        <div class="photograph-header">
-            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photographer-profile">
+            <div id="photographer-profile-text" class="photographer-profile-text"></div>
+
+            <div class="photographer-profile-message">
+                <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            </div>
+
+            <div id="photographer-profile-image" class="photographer-profile-image"></div>
         </div>
     </main>
     <div id="contact_modal">
@@ -40,6 +46,7 @@
         </div>
     </div>
     <script src="scripts/utils/api.js"></script>
+    <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>

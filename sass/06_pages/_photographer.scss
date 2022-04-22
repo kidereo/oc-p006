@@ -2,9 +2,37 @@
   display: none;
 }
 
-.photograph-header {
+.photographer-profile {
   background-color: #FAFAFA;
   height: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  &-text {
+    h1 {
+      color: $colour-font-primary;
+      font-size: 40px;
+    }
+  }
+
+  &-image {
+    img {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      padding: 5px;
+      object-fit: cover;
+      background-color: $colour-background-light;
+      transition: 500ms;
+
+      &:hover {
+        box-shadow: 0 0 2px 1px $colour-background-primary;
+        transform: scale(1.05);
+      }
+    }
+  }
 }
 
 .contact_button {
@@ -15,9 +43,16 @@
   width: 170px;
   height: 70px;
   border: none;
-  background-color: #901C1C;
+  background-color: $colour-background-primary;
   border-radius: 5px;
   cursor: pointer;
+  transition: 500ms;
+
+  &:hover {
+    color: black;
+    background-color: $colour-background-secondary;
+  }
+
 }
 
 .modal {
