@@ -31,18 +31,77 @@
         </div>
     </main>
     <div id="contact_modal">
-        <div class="modal">
-            <header>
-                <h2>Contactez-moi</h2>
-                <img src="assets/icons/close.svg" onclick="closeModal()"/>
-            </header>
-            <form>
-                <div>
-                    <label>Prénom</label>
-                    <input/>
-                </div>
-                <button id="modal_submit_button" class="contact_button">Envoyer</button>
-            </form>
+        <div class="contact_modal_overlay">
+            <div class="modal">
+                <header>
+                    <div id="modal_header-artist">
+                        <h2>Contactez-moi</h2>
+                    </div>
+                    <img src="assets/icons/close.svg" alt="Close modal" onclick="closeModal()"/>
+                </header>
+                <br><br>
+                <form
+                        id="contact_form"
+                        name="contact"
+                        action="index.html"
+                        method="get"
+                        onsubmit="return validate();"
+                >
+                    <!-- First name field -->
+                    <div class="contact_form_data"
+                         data-error="Please make sure that your name is at least 2 characters long
+                     and has no numbers in it!"
+                         data-error-visible=false>
+                        <label for="first_name">Prénom</label>
+                        <input
+                                class="contact_form_data_input"
+                                type="text"
+                                id="first_name"
+                                name="first_name"
+                        />
+                    </div>
+
+                    <!-- Surname field -->
+                    <div class="contact_form_data"
+                         data-error="Please make sure that your surname is at least 2 characters long
+                     and has no numbers in it!"
+                         data-error-visible=false>
+                        <label for="surname">Nom</label>
+                        <input
+                                class="contact_form_data_input"
+                                type="text"
+                                id="surname"
+                                name="surname"
+                        />
+                    </div>
+
+                    <!-- Email field -->
+                    <div class="contact_form_data"
+                         data-error="Please enter a valid e-mail address!"
+                         data-error-visible=false>
+                        <label for="email">E-mail</label>
+                        <input
+                                class="contact_form_data_input"
+                                type="email"
+                                id="email"
+                                name="email"
+                        />
+                    </div>
+
+                    <!-- Message field -->
+                    <div class="contact_form_data"
+                         data-error="Please make sure that your message is at least 10 characters long!"
+                         data-error-visible=false>
+                        <label for="message">Votre message</label>
+                        <textarea class="contact_form_data_input"
+                                  rows="5"
+                                  id="message"
+                                  name="message"></textarea>
+                    </div>
+
+                    <button id="modal_submit_button" class="contact_button">Envoyer</button>
+                </form>
+            </div>
         </div>
     </div>
     <script src="scripts/utils/api.js"></script>
