@@ -2,7 +2,7 @@
   display: none;
 }
 
-.photographer-profile {
+.photographer_profile {
   background-color: #FAFAFA;
   height: 300px;
   display: flex;
@@ -29,7 +29,7 @@
 
       &:hover {
         box-shadow: 0 0 2px 1px $colour-background-primary;
-        transform: scale(1.05);
+        //transform: scale(1.05);
       }
     }
   }

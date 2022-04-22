@@ -22,15 +22,16 @@ async function displayPhotographerProfile(photographers) {
     location.classList.add("photographers-section-location");
     tag_line.textContent = artist.tagline;
     tag_line.classList.add("photographers-section-tagline");
-    document.getElementById("photographer-profile-text").append(h1, location, tag_line);
+    document.getElementById("photographer_profile-text").append(h1, location, tag_line);
 
     // Add artist's photo
     const img = document.createElement("img");
     Object.assign(img, {
         src: "media/Photographers_ID_Photos/" + artist.portrait,
-        alt: "Photo of " + artist.name
+        alt: "Photo of " + artist.name,
+        title: "Photo of " + artist.name
     });
-    document.getElementById("photographer-profile-image").appendChild(img);
+    document.getElementById("photographer_profile-image").appendChild(img);
 }
 
 /**
