@@ -45,8 +45,17 @@ function validate() {
         surnameIsValid &&
         emailIsValid &&
         messageIsValid) {
+        // Log the message to the console
+        let msg = {};
+        msg.name = firstName.value;
+        msg.surname = surname.value;
+        msg.email = eMail.value;
+        msg.message = message.value;
+        console.log(JSON.stringify(msg));
+        // Close the modal and clear the form
         closeModal();
-        return true;
+        document.forms[0].reset();
+        //return true;
     }
     return false;
 }
