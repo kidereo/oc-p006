@@ -52,11 +52,12 @@ function validate() {
         msg.email = eMail.value;
         msg.message = message.value;
         console.log(JSON.stringify(msg));
+        // Display confirmation alert
+        let artist = document.getElementsByTagName('h1')[0].textContent;
+        alert("Thank you, " + msg.name + ". Your message to " + artist + " has been sent!");
         // Close the modal and clear the form
         closeModal();
         document.forms[0].reset();
-        // Display confirmation alert
-        alert("Thank you, " + msg.name + ". Your message has been sent!");
         //return true;
     }
     return false;
@@ -193,5 +194,3 @@ function setBorderToValid(element) {
         event.preventDefault();
         closeModal();
     });*/
-
-
