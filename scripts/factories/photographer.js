@@ -6,7 +6,7 @@
  */
 function photographerFactory(data) {
     // Construct data
-    const {id, name, portrait, city, tagline, price} = data;
+    const {id, name, portrait, city, country, tagline, price} = data;
     const id_photo = `media/Photographers_ID_Photos/${portrait}`;
 
     /**
@@ -42,7 +42,7 @@ function photographerFactory(data) {
         // Hydrate relevant text fields and add relevant classes
         h2.textContent = name;
 
-        location.textContent = city;
+        location.textContent = city + ", " + country;
         location.classList.add("photographers-section-location");
 
         tag_line.textContent = tagline;
@@ -68,6 +68,7 @@ function photographerFactory(data) {
         name,
         id_photo,
         city,
+        country,
         tagline,
         price,
         getUserCardDOM

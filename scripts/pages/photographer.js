@@ -19,7 +19,7 @@ async function displayPhotographerDetails(photographers) {
     const location = document.createElement("p");
     const tag_line = document.createElement("p");
     h1.textContent = artist.name;
-    location.textContent = artist.city;
+    location.textContent = artist.city + ", " + artist.country;
     location.classList.add("photographers-section-location");
     tag_line.textContent = artist.tagline;
     tag_line.classList.add("photographers-section-tagline");
