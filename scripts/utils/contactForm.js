@@ -45,7 +45,7 @@ function validate() {
         surnameIsValid &&
         emailIsValid &&
         messageIsValid) {
-        // Log the message to the console
+        // Log message variables to the console
         let msg = {};
         msg.name = firstName.value;
         msg.surname = surname.value;
@@ -55,6 +55,8 @@ function validate() {
         // Close the modal and clear the form
         closeModal();
         document.forms[0].reset();
+        // Display confirmation alert
+        alert("Thank you, " + msg.name + ". Your message has been sent!");
         //return true;
     }
     return false;

@@ -3,3 +3,15 @@
   max-width: $breakpoint-desktop;
   margin: 0 auto 0 auto;
 }
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+  .container {
+    width: 96%;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .container {
+    width: 98%;
+  }
+}
