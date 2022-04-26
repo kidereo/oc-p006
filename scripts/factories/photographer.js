@@ -60,7 +60,7 @@ function photographerFactory(data) {
         article.appendChild(tag_line);
         article.appendChild(fee);
 
-        return (article);
+        return article;
     }
 
     return {

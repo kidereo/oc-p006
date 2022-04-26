@@ -1,3 +1,7 @@
+// Get artist's id from the url
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
 /**
  * Display photographer details in various parts of the document
  * (e.g. above their works, in page title, modal etc).
@@ -6,10 +10,6 @@
  * @returns {Promise<void>}
  */
 async function displayPhotographerDetails(photographers) {
-    // Get data
-    // Get artist's id from the url
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
     // Search for the right artist based on the passed id
     const artist = photographers.find(photographer => photographer.id == id);
 
@@ -43,6 +43,19 @@ async function displayPhotographerDetails(photographers) {
     document.title = "FishEye | " + artist.name;
 }
 
+async function dispalyMedumDetails(media) {
+    // Search for the right artist based on the passed id
+    const artistMedia = media.filter(media => media.photographerId == id);
+    // Select DOM element
+    const photographerMediaSection = document.querySelector(".photographer_media");
+
+    artistMedia.forEach((media) => {
+        const mediaModel = mediaFactory(media);
+        const mediumCardDOM = mediaModel.getMediumCardDOM();
+        photographerMediaSection.appendChild(mediumCardDOM);
+    });
+}
+
 /**
  * Prepare for the page lift-off
  *
@@ -51,9 +64,12 @@ async function displayPhotographerDetails(photographers) {
 async function init() {
     // Get the data from api.js
     const {photographers} = await getData();
+    const {media} = await getData();
     // Pass the data on and show photographer info
     displayPhotographerDetails(photographers);
+    dispalyMedumDetails(media);
 }
 
 // Lift-off!
 init();
+
