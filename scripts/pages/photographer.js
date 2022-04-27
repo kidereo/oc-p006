@@ -2,6 +2,9 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
+//Get photographer tab
+const tab = document.getElementById('photographer_tab');
+
 /**
  * Display photographer details in various parts of the document
  * (e.g. above their works, in page title, modal etc).
@@ -39,6 +42,11 @@ async function displayPhotographerDetails(photographers) {
     h2.textContent = artist.name;
     document.getElementById("modal_header-artist").appendChild(h2);
 
+    //Send artist's rate to the tab
+    const h3 = document.createElement("h3");
+    h3.textContent = artist.price + "€/jour";
+    tab.appendChild(h3);
+
     // Set the document title to show the artist's name
     document.title = "FishEye | " + artist.name;
 }
@@ -54,6 +62,20 @@ async function dispalyMedumDetails(media) {
         const mediumCardDOM = mediaModel.getMediumCardDOM();
         photographerMediaSection.appendChild(mediumCardDOM);
     });
+
+    //Send artist's likes to the tab
+    const counterDiv = document.createElement("div");
+    const fontAwesome = document.createElement("i");
+    const counter = document.createElement("span");
+
+    let likesNumber = 0;
+    artistMedia.forEach((media) => {
+        likesNumber += media.likes;
+    });
+    counter.textContent = likesNumber;
+    fontAwesome.classList.add("fas", "fa-heart");
+    counterDiv.append(counter, fontAwesome);
+    tab.appendChild(counterDiv);
 }
 
 /**
@@ -72,4 +94,6 @@ async function init() {
 
 // Lift-off!
 init();
+
+
 

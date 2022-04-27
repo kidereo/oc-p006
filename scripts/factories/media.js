@@ -46,7 +46,6 @@ function mediaFactory(data) {
                 title: title
             });
             article.appendChild(img);
-            article.appendChild(divMediaLegend);
         } else if (data.hasOwnProperty('video')) {
             Object.assign(vid, {
                 src: mediumVideo,
@@ -54,15 +53,16 @@ function mediaFactory(data) {
                 title: title
             });
             article.appendChild(vid);
-            article.appendChild(divMediaLegend);
         } else {
             Object.assign(img, {
                 src: placeholderImage,
-                alt: "Placeholder image",
-                title: "Placeholder image"
+                alt: "No image",
+                title: "No image"
             });
             article.appendChild(img);
         }
+        // Append article legend
+        article.appendChild(divMediaLegend);
 
         return article;
     }

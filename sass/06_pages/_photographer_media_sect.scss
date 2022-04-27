@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
   margin-top: 100px;
+  padding-bottom: 100px;
 
   & article {
     border-radius: 5px;
@@ -38,5 +39,17 @@
         cursor: pointer;
       }
     }
+  }
+}
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+  .photographer_media {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .photographer_media {
+    grid-template-columns: 1fr;
   }
 }
