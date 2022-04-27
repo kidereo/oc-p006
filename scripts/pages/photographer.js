@@ -51,7 +51,7 @@ async function displayPhotographerDetails(photographers) {
     document.title = "FishEye | " + artist.name;
 }
 
-async function dispalyMedumDetails(media) {
+async function dispalyMediumDetails(media) {
     // Search for the right artist based on the passed id
     const artistMedia = media.filter(media => media.photographerId == id);
     // Select DOM element
@@ -68,10 +68,12 @@ async function dispalyMedumDetails(media) {
     const fontAwesome = document.createElement("i");
     const counter = document.createElement("span");
 
+    //TODO: Replace db info with the actuals on the page
     let likesNumber = 0;
     artistMedia.forEach((media) => {
         likesNumber += media.likes;
     });
+
     counter.textContent = likesNumber;
     fontAwesome.classList.add("fas", "fa-heart");
     counterDiv.append(counter, fontAwesome);
@@ -87,13 +89,12 @@ async function init() {
     // Get the data from api.js
     const {photographers} = await getData();
     const {media} = await getData();
-    // Pass the data on and show photographer info
+    // Pass the data on and show photographer info and portfolio
     displayPhotographerDetails(photographers);
-    dispalyMedumDetails(media);
+    dispalyMediumDetails(media);
 }
 
 // Lift-off!
 init();
-
 
 

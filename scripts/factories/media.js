@@ -64,6 +64,26 @@ function mediaFactory(data) {
         // Append article legend
         article.appendChild(divMediaLegend);
 
+        /**
+         * Listen for heart clicks and increment or decrement the image counter
+         *
+         * @param event
+         */
+        function toggleLikes(event) {
+            let likes = parseInt(counter.textContent);
+            if (event.target.classList.contains('is-liked')) {
+                event.target.classList.replace('fas', 'far');
+                event.target.classList.remove('is-liked');
+                counter.textContent = likes - 1;
+            } else {
+                event.target.classList.replace('far', 'fas');
+                event.target.classList.add('is-liked');
+                counter.textContent = likes + 1;
+            }
+        }
+
+        fontAwesome.addEventListener("click", toggleLikes);
+
         return article;
     }
 
