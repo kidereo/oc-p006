@@ -65,20 +65,25 @@ function mediaFactory(data) {
         article.appendChild(divMediaLegend);
 
         /**
-         * Listen for heart clicks and increment or decrement the image counter
+         * Listen for clicks on hearts and increment or decrement both the image counter
+         * and the tab counter.
          *
          * @param event
          */
         function toggleLikes(event) {
-            let likes = parseInt(counter.textContent);
+            let artLikes = parseInt(counter.textContent);
+            let tab = document.getElementById('photographer_tab-counter');
+            let tabLikes = parseInt(tab.textContent);
             if (event.target.classList.contains('is-liked')) {
                 event.target.classList.replace('fas', 'far');
                 event.target.classList.remove('is-liked');
-                counter.textContent = likes - 1;
+                counter.textContent = --artLikes;
+                tab.textContent = --tabLikes;
             } else {
                 event.target.classList.replace('far', 'fas');
                 event.target.classList.add('is-liked');
-                counter.textContent = likes + 1;
+                counter.textContent = ++artLikes;
+                tab.textContent = ++tabLikes;
             }
         }
 

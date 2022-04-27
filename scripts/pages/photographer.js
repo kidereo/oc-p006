@@ -68,12 +68,12 @@ async function dispalyMediumDetails(media) {
     const fontAwesome = document.createElement("i");
     const counter = document.createElement("span");
 
-    //TODO: Replace db info with the actuals on the page
     let likesNumber = 0;
     artistMedia.forEach((media) => {
         likesNumber += media.likes;
     });
 
+    counter.setAttribute('id', 'photographer_tab-counter');
     counter.textContent = likesNumber;
     fontAwesome.classList.add("fas", "fa-heart");
     counterDiv.append(counter, fontAwesome);
