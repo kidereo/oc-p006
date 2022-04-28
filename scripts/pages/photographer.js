@@ -51,7 +51,7 @@ async function displayPhotographerDetails(photographers) {
     document.title = "FishEye | " + artist.name;
 }
 
-async function dispalyMediumDetails(media) {
+async function dispalyPortfolioDetails(media) {
     // Search for the right artist based on the passed id
     const artistMedia = media.filter(media => media.photographerId == id);
     // Select DOM element
@@ -91,7 +91,7 @@ async function init() {
     const {media} = await getData();
     // Pass the data on and show photographer info and portfolio
     displayPhotographerDetails(photographers);
-    dispalyMediumDetails(media);
+    dispalyPortfolioDetails(media);
 }
 
 // Lift-off!

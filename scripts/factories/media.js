@@ -2,7 +2,7 @@
  * Build up portfolio cards on photographer pages.
  *
  * @param data
- * @returns {{mediumVideo: string, date: *, photographerId: *, price: *, id: *, title: *, mediumPhoto: string, likes: *, getMediumCardDOM: (function(): HTMLElement)}}
+ * @returns {{getMediumCardDOM: (function(): HTMLElement)}}
  */
 function mediaFactory(data) {
     // Construct data. Note that you need different paths for videos and images.
@@ -10,6 +10,8 @@ function mediaFactory(data) {
     const mediumPhoto = `media/${photographerId}/${image}`;
     const mediumVideo = `media/${photographerId}/${video}`;
     const placeholderImage = "assets/images/image-not-found.png";
+    const counter = document.createElement("p");
+    const fontAwesome = document.createElement("i");
 
     /**
      * Build up individual media cards.
@@ -24,17 +26,17 @@ function mediaFactory(data) {
         const divMediaLegend = document.createElement("div");
         const divCounter = document.createElement("div");
         const h2 = document.createElement("h2");
-        const counter = document.createElement("p");
-        const fontAwesome = document.createElement("i");
+        const mediumDate = document.createElement("p");
 
         // Hydrate common elements
         h2.textContent = title;
         counter.textContent = likes;
+        mediumDate.textContent = date;
 
         fontAwesome.classList.add("far", "fa-heart");
 
         divCounter.classList.add("photographer_media_legend-counter");
-        divCounter.append(counter, fontAwesome);
+        divCounter.append(counter, fontAwesome, mediumDate);
         divMediaLegend.classList.add("photographer_media_legend");
         divMediaLegend.append(h2, divCounter);
 
@@ -61,46 +63,38 @@ function mediaFactory(data) {
             });
             article.appendChild(img);
         }
-        // Append article legend
+
+        // Append article legend and click listener
         article.appendChild(divMediaLegend);
-
-        /**
-         * Listen for clicks on hearts and increment or decrement both the image counter
-         * and the tab counter.
-         *
-         * @param event
-         */
-        function toggleLikes(event) {
-            let artLikes = parseInt(counter.textContent);
-            let tab = document.getElementById('photographer_tab-counter');
-            let tabLikes = parseInt(tab.textContent);
-            if (event.target.classList.contains('is-liked')) {
-                event.target.classList.replace('fas', 'far');
-                event.target.classList.remove('is-liked');
-                counter.textContent = --artLikes;
-                tab.textContent = --tabLikes;
-            } else {
-                event.target.classList.replace('far', 'fas');
-                event.target.classList.add('is-liked');
-                counter.textContent = ++artLikes;
-                tab.textContent = ++tabLikes;
-            }
-        }
-
         fontAwesome.addEventListener("click", toggleLikes);
 
         return article;
     }
 
     return {
-        id,
-        photographerId,
-        title,
-        mediumPhoto,
-        mediumVideo,
-        likes,
-        date,
-        price,
         getMediumCardDOM
     };
+
+    /**
+     * Listen for clicks on hearts and increment or decrement both the image counter
+     * and the tab counter.
+     *
+     * @param event
+     */
+    function toggleLikes(event) {
+        let artLikes = parseInt(counter.textContent);
+        let tab = document.getElementById('photographer_tab-counter');
+        let tabLikes = parseInt(tab.textContent);
+        if (event.target.classList.contains('is-liked')) {
+            event.target.classList.replace('fas', 'far');
+            event.target.classList.remove('is-liked');
+            counter.textContent = --artLikes;
+            tab.textContent = --tabLikes;
+        } else {
+            event.target.classList.replace('far', 'fas');
+            event.target.classList.add('is-liked');
+            counter.textContent = ++artLikes;
+            tab.textContent = ++tabLikes;
+        }
+    }
 }

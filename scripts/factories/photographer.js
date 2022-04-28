@@ -64,13 +64,6 @@ function photographerFactory(data) {
     }
 
     return {
-        id,
-        name,
-        id_photo,
-        city,
-        country,
-        tagline,
-        price,
         getUserCardDOM
     };
 }
