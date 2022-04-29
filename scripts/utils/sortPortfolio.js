@@ -48,6 +48,13 @@ function sortByDateDesc() {
 }
 
 /**
+ * Reload page.
+ */
+function sortReset() {
+    location.reload();
+}
+
+/**
  * Dynamically reorder media cards on counter increment or decrement.
  * Only do so on sort by likes order.
  */

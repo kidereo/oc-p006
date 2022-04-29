@@ -32,9 +32,19 @@
             <div id="photographer_profile-image" class="photographer_profile-image"></div>
         </div>
 
-        <button onclick="sortByTitleDesc()">Sort by title</button>
-        <button id="sortByLikesDesc" onclick="sortByLikesDesc()">Sort by likes</button>
-        <button onclick="sortByDateDesc()">Sort by date</button>
+        <div class="sort_selector" id="sort_selector">
+            <label for="selector">Trier par</label>
+            <select name="selector"
+                    id="selector"
+                    aria-label="Sort by"
+                    tabindex="4"
+            >
+                <option value="reset">Sélectionner</option>
+                <option value="likes">Popularité</option>
+                <option value="dates">Date</option>
+                <option value="title">Titre</option>
+            </select>
+        </div>
 
         <div class="photographer_media" id="photographer_media"></div>
 
@@ -121,6 +131,7 @@
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/sortPortfolio.js"></script>
+    <script src="scripts/utils/sortSelector.js"></script>
 </div> <!-- End of .container -->
 </body>
 </html>
