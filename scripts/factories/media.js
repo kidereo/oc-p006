@@ -26,17 +26,16 @@ function mediaFactory(data) {
         const divMediaLegend = document.createElement("div");
         const divCounter = document.createElement("div");
         const h2 = document.createElement("h2");
-        const mediumDate = document.createElement("p");
+        const pDate = document.createElement("p");
 
         // Hydrate common elements
         h2.textContent = title;
         counter.textContent = likes;
-        mediumDate.textContent = date;
 
         fontAwesome.classList.add("far", "fa-heart");
 
         divCounter.classList.add("photographer_media_legend-counter");
-        divCounter.append(counter, fontAwesome, mediumDate);
+        divCounter.append(counter, fontAwesome);
         divMediaLegend.classList.add("photographer_media_legend");
         divMediaLegend.append(h2, divCounter);
 
@@ -64,8 +63,12 @@ function mediaFactory(data) {
             article.appendChild(img);
         }
 
+        pDate.textContent = date;
+        pDate.classList.add("photographer_media_legend-date");
+
         // Append article legend and click listener
         article.appendChild(divMediaLegend);
+        article.appendChild(pDate);
         fontAwesome.addEventListener("click", toggleLikes);
 
         return article;

@@ -1,7 +1,7 @@
 /**
  * Connect to the data source and return data arrays.
  *
- * @returns {Promise<{photographers: *[]}>}
+ * @returns {Promise<{photographers: *[], media: ...MediaList | string[]}>}
  */
 async function getData() {
     // Connect to the data source with fetch()

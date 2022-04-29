@@ -40,6 +40,11 @@
         cursor: pointer;
       }
     }
+
+    &-date {
+      //display: none;
+      color: $colour-font-light;
+    }
   }
 }
 

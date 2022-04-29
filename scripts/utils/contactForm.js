@@ -1,5 +1,5 @@
 /**
- * DOM elements
+ * DOM elements.
  */
 const firstName = document.getElementById('first_name');
 const surname = document.getElementById('surname');
@@ -7,7 +7,7 @@ const eMail = document.getElementById('email');
 const message = document.getElementById('message');
 
 /**
- * Variables
+ * Variables.
  */
 const regexName = /^[a-z ,.'-]+$/i;
 const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

@@ -54,9 +54,14 @@ async function displayPhotographerDetails(photographers) {
 async function dispalyPortfolioDetails(media) {
     // Search for the right artist based on the passed id
     const artistMedia = media.filter(media => media.photographerId == id);
+
+    // Sort data by attribute
+    sortPortfolio(artistMedia, 'likes', false);
+
     // Select DOM element
     const photographerMediaSection = document.querySelector(".photographer_media");
 
+    // Send data to the media factory and get back individual art cards
     artistMedia.forEach((media) => {
         const mediaModel = mediaFactory(media);
         const mediumCardDOM = mediaModel.getMediumCardDOM();
@@ -89,6 +94,7 @@ async function init() {
     // Get the data from api.js
     const {photographers} = await getData();
     const {media} = await getData();
+
     // Pass the data on and show photographer info and portfolio
     displayPhotographerDetails(photographers);
     dispalyPortfolioDetails(media);
@@ -97,4 +103,19 @@ async function init() {
 // Lift-off!
 init();
 
-
+/**
+ * Sort data by an attribute.
+ *
+ * @param data
+ * @param attribute
+ * @param asc
+ */
+function sortPortfolio(data, attribute, asc) {
+    data.sort(function (a, b) {
+        if (asc) {
+            return (a[attribute] > b[attribute]) ? 1 : ((a[attribute] < b[attribute]) ? -1 : 0);
+        } else {
+            return (b[attribute] > a[attribute]) ? 1 : ((b[attribute] < a[attribute]) ? -1 : 0);
+        }
+    });
+}
