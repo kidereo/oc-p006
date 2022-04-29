@@ -26,6 +26,7 @@ function mediaFactory(data) {
         const divMediaLegend = document.createElement("div");
         const divCounter = document.createElement("div");
         const h2 = document.createElement("h2");
+        const divMediaDate = document.createElement("div");
         const pDate = document.createElement("p");
 
         // Hydrate common elements
@@ -63,13 +64,17 @@ function mediaFactory(data) {
             article.appendChild(img);
         }
 
+        // Hydrate date on the article
+        divMediaDate.classList.add("photographer_media_legend-date");
         pDate.textContent = date;
-        pDate.classList.add("photographer_media_legend-date");
+        divMediaDate.appendChild(pDate);
 
-        // Append article legend and click listener
+
+        // Append article legend and click listeners
         article.appendChild(divMediaLegend);
-        article.appendChild(pDate);
+        article.appendChild(divMediaDate);
         fontAwesome.addEventListener("click", toggleLikes);
+        fontAwesome.addEventListener("click", sortByLikesDesc);
 
         return article;
     }

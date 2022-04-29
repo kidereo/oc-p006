@@ -1,3 +1,0 @@
-function sortByTitle() {
-    alert('hello');
-}

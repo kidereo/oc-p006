@@ -32,7 +32,9 @@
             <div id="photographer_profile-image" class="photographer_profile-image"></div>
         </div>
 
-        <button id="sort_title" onclick="sortByTitle()">Sort by title</button>
+        <button onclick="sortByTitleDesc()">Sort by title</button>
+        <button id="sortByLikesDesc" onclick="sortByLikesDesc()">Sort by likes</button>
+        <button onclick="sortByDateDesc()">Sort by date</button>
 
         <div class="photographer_media" id="photographer_media"></div>
 
@@ -118,7 +120,7 @@
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
-    <script src="scripts/utils/test.js"></script>
+    <script src="scripts/utils/sortPortfolio.js"></script>
 </div> <!-- End of .container -->
 </body>
 </html>

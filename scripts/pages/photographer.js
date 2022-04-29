@@ -55,8 +55,8 @@ async function dispalyPortfolioDetails(media) {
     // Search for the right artist based on the passed id
     const artistMedia = media.filter(media => media.photographerId == id);
 
-    // Sort data by attribute
-    sortPortfolio(artistMedia, 'likes', false);
+    // Sort data by attribute - oldest first
+    sortPortfolio(artistMedia, 'date', true);
 
     // Select DOM element
     const photographerMediaSection = document.querySelector(".photographer_media");
