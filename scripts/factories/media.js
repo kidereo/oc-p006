@@ -74,7 +74,7 @@ function mediaFactory(data) {
         article.appendChild(divMediaLegend);
         article.appendChild(divMediaDate);
         fontAwesome.addEventListener("click", toggleLikes);
-        fontAwesome.addEventListener("click", sortByLikesDesc);
+        fontAwesome.addEventListener("click", reorderLikes);
 
         return article;
     }
