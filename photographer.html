@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
     <link href="css/styles.css" rel="stylesheet" type="text/css"/>
     <script src="https://kit.fontawesome.com/73f9c930af.js" crossorigin="anonymous"></script>
 </head>
@@ -32,13 +33,36 @@
             <div id="photographer_profile-image" class="photographer_profile-image"></div>
         </div>
 
+        <div class="sort_radio_container">
+            <p>Trier par</p>
+            <fieldset name="radio_container" id="radio_container" class="radio_container">
+                <div class="radio_options">
+                    <div class="toggle">Sélectionner <i class="fas fa-chevron-down"></i><i
+                            class="fas fa-chevron-up"></i></div>
+                    <ul>
+                        <li>
+                            <input type="radio" name="sort_choice" id="sort_likes" value="sort_likes">
+                            <label for="sort_likes">Popularité</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="sort_choice" id="sort_date" value="sort_date">
+                            <label for="sort_date">Date</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="sort_choice" id="sort_title" value="sort_title">
+                            <label for="sort_title">Titre</label>
+                        </li>
+                    </ul>
+                </div>
+            </fieldset>
+        </div>
+
         <div class="sort_selector" id="sort_selector">
             <label for="selector">Trier par</label>
             <select name="selector"
                     id="selector"
                     aria-label="Sort by"
-                    tabindex="4"
-            >
+                    tabindex="4">
                 <option value="reset">Sélectionner</option>
                 <option value="likes">Popularité</option>
                 <option value="dates">Date</option>

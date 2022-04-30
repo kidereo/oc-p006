@@ -1,9 +1,15 @@
-// Get artist's id from the url
+/**
+ * Access DOM elements.
+ */
+const tab = document.getElementById('photographer_tab');
+
+/**
+ * Extract artist's id from the url.
+ *
+ * @type {URLSearchParams}
+ */
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
-
-//Get photographer tab
-const tab = document.getElementById('photographer_tab');
 
 /**
  * Display photographer details in various parts of the document
@@ -17,7 +23,7 @@ async function displayPhotographerDetails(photographers) {
     const artist = photographers.find(photographer => photographer.id == id);
 
     // [1] Build up the DOM for the photographer_profile section
-    // Populate -text div
+    // Hydrate -text div
     const h1 = document.createElement("h1");
     const location = document.createElement("p");
     const tag_line = document.createElement("p");
@@ -27,7 +33,8 @@ async function displayPhotographerDetails(photographers) {
     tag_line.textContent = artist.tagline;
     tag_line.classList.add("photographers-section-tagline");
     document.getElementById("photographer_profile-text").append(h1, location, tag_line);
-    // Populate -image div
+
+    // Hydrate -image div
     const img = document.createElement("img");
     Object.assign(img, {
         src: "media/Photographers_ID_Photos/" + artist.portrait,
@@ -42,7 +49,7 @@ async function displayPhotographerDetails(photographers) {
     h2.textContent = artist.name;
     document.getElementById("modal_header-artist").appendChild(h2);
 
-    //Send artist's rate to the tab
+    // Send artist's rate to the tab
     const h3 = document.createElement("h3");
     h3.textContent = artist.price + "€/jour";
     tab.appendChild(h3);
@@ -51,7 +58,13 @@ async function displayPhotographerDetails(photographers) {
     document.title = "FishEye | " + artist.name;
 }
 
-async function dispalyPortfolioDetails(media) {
+/**
+ * Construct the portfolio part of the page.
+ *
+ * @param media
+ * @returns {Promise<void>}
+ */
+async function displayPortfolioDetails(media) {
     // Search for the right artist based on the passed id
     const artistMedia = media.filter(media => media.photographerId == id);
 
@@ -68,7 +81,7 @@ async function dispalyPortfolioDetails(media) {
         photographerMediaSection.appendChild(mediumCardDOM);
     });
 
-    //Send artist's likes to the tab
+    // Send artist's likes to the tab
     const counterDiv = document.createElement("div");
     const fontAwesome = document.createElement("i");
     const counter = document.createElement("span");
@@ -86,7 +99,7 @@ async function dispalyPortfolioDetails(media) {
 }
 
 /**
- * Prepare for the page lift-off
+ * Prepare for the page lift-off.
  *
  * @returns {Promise<void>}
  */
@@ -97,7 +110,7 @@ async function init() {
 
     // Pass the data on and show photographer info and portfolio
     displayPhotographerDetails(photographers);
-    dispalyPortfolioDetails(media);
+    displayPortfolioDetails(media);
 }
 
 // Lift-off!

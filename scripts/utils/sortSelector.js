@@ -1,14 +1,13 @@
 /**
- * Access DOM element(s).
+ * Deploy <select>-based dropdown.
  */
+// Access DOM elements
 const optionSelector = document.getElementById('selector');
 
-/**
- * Put a switch on the option selector.
- */
+// Put switch on the selector
 optionSelector.addEventListener('change', function () {
-    let selectedValue = optionSelector.value;
-    switch (selectedValue) {
+    let value = optionSelector.value;
+    switch (value) {
         case 'title':
             sortByTitleDesc();
             break;
@@ -23,3 +22,14 @@ optionSelector.addEventListener('change', function () {
     }
 });
 
+/**
+ * Deploy <radio>-based dropdown.
+ */
+// Access DOM elements
+const sortTitle = document.getElementById('sort_title');
+const sortLikes = document.getElementById('sort_likes');
+const sortDate = document.getElementById('sort_date');
+
+sortTitle.onchange = sortByTitleDesc;
+sortLikes.onchange = sortByLikesDesc;
+sortDate.onchange = sortByDateDesc;

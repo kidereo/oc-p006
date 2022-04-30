@@ -1,13 +1,18 @@
+/**
+* CSS for <select> dropdown
+ */
 .sort_selector {
   margin-top: 50px;
 
-  & label {
+  label {
     font-size: larger;
     font-weight: 600;
     margin-right: 10px;
   }
 
-  & select {
+  select {
+    border: none;
+    outline: none;
     font-size: larger;
     width: 200px;
     height: 50px;
@@ -16,17 +21,170 @@
     border-radius: 5px;
     padding: 5px;
     cursor: pointer;
-    transition: 500ms;
+    //transition: 500ms;
+    margin: 0;
 
     &:hover {
       //transform: scale(1.05);
-      color: black;
-      background-color: $colour-background-secondary;
+      //color: black;
+      //background-color: $colour-background-secondary;
+    }
+  }
+}
 
+/**
+* CSS for the radio-based dropdown
+ */
+fieldset {
+  border: 0;
+  padding: 0.01em 0 0 0;
+  margin: 0;
+  min-width: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sort_radio_container {
+  display: flex;
+  margin-top: 50px;
+
+  p {
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: larger;
+    font-weight: 600;
+  }
+}
+
+.toggle {
+  i {
+    float: right;
+  }
+}
+
+.radio_container {
+  position: relative;
+  font-size: larger;
+  height: 4em;
+
+  &:hover {
+    //z-index: 9999;
+  }
+}
+
+.radio_options {
+  position: absolute;
+  max-height: 3em;
+  width: 200px;
+  overflow: hidden;
+  color: white;
+  //transition: 500ms;
+
+  & .fa-chevron-up {
+    display: none;
+  }
+
+  &:hover {
+    max-height: 200em;
+    background-color: $colour-background-primary;
+    border-radius: 5px;
+
+    & .fa-chevron-down {
+      display: none;
     }
 
-    &:focus {
-      outline: 0;
+    & .fa-chevron-up {
+      display: inline;
     }
+  }
+
+  & .toggle {
+    position: relative;
+    cursor: pointer;
+    padding: 0.75em;
+    background: $colour-background-primary;
+    color: white;
+    border-radius: 5px;
+    z-index: 1;
+  }
+
+  li {
+    list-style-type: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0.75em;
+    //border-top: 1px solid white;
+
+    /* white lines above li */
+    &:before {
+      display: block;
+      content: '';
+      height: 1px;
+      background: white;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      width: 80%;
+    }
+  }
+
+  label {
+    display: block;
+    width: 200px;
+    opacity: 0;
+    //transition: 500ms;
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 3em;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  &:hover li {
+    position: relative;
+  }
+
+  &:hover label {
+    opacity: 1;
+    //transition: 500ms;
+  }
+
+  & input:checked ~ label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    /* is above the .toggle so is visible */
+    z-index: 2;
+    /* has tha same styles as .toggle */
+    padding: 0.75em;
+    background: $colour-background-primary;
+    border-radius: 5px;
+    color: white;
+    width: 80%;
+  }
+
+  &:hover input:checked ~ label {
+    position: static;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  &:hover input:hover ~ label:before {
+    content: '> ';
   }
 }
