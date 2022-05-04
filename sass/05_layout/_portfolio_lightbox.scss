@@ -1,0 +1,89 @@
+.lightbox {
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow: auto;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.portfolio_lightbox_wrapper {
+  //
+}
+
+.portfolio_lightbox_content {
+  display: flex;
+  margin-top: 5%;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  max-width: $breakpoint-desktop;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  & .close i {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 4rem;
+    cursor: pointer;
+    color: $colour-font-secondary;
+    margin: 0;
+    transition: 500ms;
+
+    &:hover {
+      color: $colour-font-primary;
+    }
+  }
+
+  img, video {
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+    border: 5px solid #fff;
+    border-radius: 10px;
+  }
+
+  i {
+    font-size: 4rem;
+    cursor: pointer;
+    color: $colour-font-secondary;
+    margin: 20px;
+    transition: 500ms;
+
+    &:hover {
+      color: $colour-font-primary;
+    }
+  }
+
+  &-art {
+    border-radius: 5px;
+
+    h2 {
+      color: $colour-font-secondary;
+      margin-left: 5px;
+    }
+  }
+}
+
+//noinspection CssInvalidPseudoSelector
+video::-webkit-media-controls {
+  visibility: hidden;
+}
+
+//noinspection CssInvalidPseudoSelector
+video::-webkit-media-controls-enclosure {
+  visibility: visible;
+}

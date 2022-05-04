@@ -23,11 +23,13 @@ function mediaFactory(data) {
         const article = document.createElement("article");
         const img = document.createElement("img");
         const vid = document.createElement("video");
+        //const media = document.createElement("div");
         const divMediaLegend = document.createElement("div");
         const divCounter = document.createElement("div");
         const h2 = document.createElement("h2");
         const divMediaDate = document.createElement("div");
         const pDate = document.createElement("p");
+        const i = document.createElement("i");
 
         // Hydrate common elements
         h2.textContent = title;
@@ -47,6 +49,7 @@ function mediaFactory(data) {
                 alt: title,
                 title: title
             });
+            img.setAttribute('onClick', 'openLightbox(this)');
             article.appendChild(img);
         } else if (data.hasOwnProperty('video')) {
             Object.assign(vid, {
@@ -54,13 +57,22 @@ function mediaFactory(data) {
                 alt: title,
                 title: title
             });
+            Object.assign(i, {
+                class: "far fa-play-circle"
+            });
+            vid.setAttribute('type', 'video/mp4');
+            vid.setAttribute('onClick', 'openLightbox(this)');
+            //vid.setAttribute('controls', 'controls');
+            i.classList.add("far", "fa-play-circle", "photographer_media-i");
             article.appendChild(vid);
+            article.appendChild(i);
         } else {
             Object.assign(img, {
                 src: placeholderImage,
                 alt: "No image",
                 title: "No image"
             });
+            img.setAttribute('onClick', 'openLightbox(this)');
             article.appendChild(img);
         }
 
@@ -71,6 +83,7 @@ function mediaFactory(data) {
 
 
         // Append article legend and click listeners
+        //article.appendChild(media);
         article.appendChild(divMediaLegend);
         article.appendChild(divMediaDate);
         fontAwesome.addEventListener("click", toggleLikes);
