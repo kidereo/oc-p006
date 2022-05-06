@@ -30,6 +30,7 @@ function mediaFactory(data) {
         const divMediaDate = document.createElement("div");
         const pDate = document.createElement("p");
         const i = document.createElement("i");
+        const divMediaArt = document.createElement("div");
 
         // Hydrate common elements
         h2.textContent = title;
@@ -37,6 +38,7 @@ function mediaFactory(data) {
 
         fontAwesome.classList.add("far", "fa-heart");
 
+        divMediaArt.classList.add("photographer_media_art");
         divCounter.classList.add("photographer_media_legend-counter");
         divCounter.append(counter, fontAwesome);
         divMediaLegend.classList.add("photographer_media_legend");
@@ -49,22 +51,22 @@ function mediaFactory(data) {
                 alt: title,
                 title: title
             });
-            img.setAttribute('onClick', 'openLightbox(this)');
-            article.appendChild(img);
+            img.setAttribute('onClick', 'openLightbox()');
+            divMediaArt.appendChild(img);
         } else if (data.hasOwnProperty('video')) {
             Object.assign(vid, {
                 src: mediumVideo,
                 alt: title,
                 title: title
             });
-            Object.assign(i, {
-                class: "far fa-play-circle"
-            });
             vid.setAttribute('type', 'video/mp4');
-            vid.setAttribute('onClick', 'openLightbox(this)');
-            //vid.setAttribute('controls', 'controls');
+            vid.setAttribute('onClick', 'openLightbox()');
+            vid.setAttribute('controls', 'controls');
+            vid.setAttribute('autoplay', 'autoplay');
+            vid.setAttribute('loop', 'loop');
+            //vid.setAttribute('poster', 'assets/images/circle-loader.gif');
+            divMediaArt.appendChild(vid);
             i.classList.add("far", "fa-play-circle", "photographer_media-i");
-            article.appendChild(vid);
             article.appendChild(i);
         } else {
             Object.assign(img, {
@@ -72,8 +74,8 @@ function mediaFactory(data) {
                 alt: "No image",
                 title: "No image"
             });
-            img.setAttribute('onClick', 'openLightbox(this)');
-            article.appendChild(img);
+            //img.setAttribute('onClick', 'openLightbox()');
+            divMediaArt.appendChild(img);
         }
 
         // Hydrate date on the article
@@ -84,6 +86,7 @@ function mediaFactory(data) {
 
         // Append article legend and click listeners
         //article.appendChild(media);
+        article.appendChild(divMediaArt);
         article.appendChild(divMediaLegend);
         article.appendChild(divMediaDate);
         fontAwesome.addEventListener("click", toggleLikes);

@@ -113,7 +113,9 @@ async function init() {
     displayPortfolioDetails(media);
 }
 
-// Lift-off!
+/**
+ * We are off!
+ */
 init();
 
 /**

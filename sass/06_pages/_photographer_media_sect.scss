@@ -62,9 +62,11 @@
       }
     }
 
-    &-date {
+    &-date p {
       //display: none;
       color: $colour-font-light;
+      padding: 0 0 5px 0;
+      font-size: smaller;
     }
   }
 }

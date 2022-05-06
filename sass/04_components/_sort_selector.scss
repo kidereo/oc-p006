@@ -3,6 +3,7 @@
  */
 .sort_selector {
   margin-top: 50px;
+  display: none;
 
   label {
     font-size: larger;
@@ -72,7 +73,7 @@ ul {
   height: 4em;
 
   &:hover {
-    //z-index: 9999;
+    z-index: 9999;
   }
 }
 
@@ -82,6 +83,7 @@ ul {
   width: 200px;
   overflow: hidden;
   color: white;
+  border: white 1px solid;
   //transition: 500ms;
 
   & .fa-chevron-up {

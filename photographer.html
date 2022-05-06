@@ -154,10 +154,10 @@
 
         <div class="portfolio_lightbox_wrapper">
             <div class="portfolio_lightbox_content">
-                <div onClick="closeLightbox()" class="close"><i class="fas fa-times"></i></div>
-                <i class="fas fa-chevron-left"></i>
+                <div onClick="closeLightbox()" class="close_lightbox"><i class="fas fa-times"></i></div>
+                <i id="portfolio_lightbox_arrow-left" class="fas fa-chevron-left" onclick="moveArt(-1)"></i>
                 <div id="portfolio_lightbox_content-art" class="portfolio_lightbox_content-art"></div>
-                <i class="fas fa-chevron-right"></i>
+                <i id="portfolio_lightbox_arrow-right" class="fas fa-chevron-right" onclick="moveArt(1)"></i>
             </div>
         </div>
 
