@@ -49,7 +49,7 @@ function mediaFactory(data) {
             Object.assign(img, {
                 src: mediumPhoto,
                 alt: title,
-                title: title
+                //title: title
             });
             img.setAttribute('onClick', 'openLightbox()');
             divMediaArt.appendChild(img);
@@ -71,8 +71,7 @@ function mediaFactory(data) {
         } else {
             Object.assign(img, {
                 src: placeholderImage,
-                alt: "No image",
-                title: "No image"
+                alt: "No image"
             });
             //img.setAttribute('onClick', 'openLightbox()');
             divMediaArt.appendChild(img);

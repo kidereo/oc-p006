@@ -62,7 +62,7 @@ let artIndex = 0;
 showArt(artIndex);
 
 /**
- * Operate right and left arrows.
+ * Operate right and left modal arrows.
  *
  * @param n
  */
@@ -80,6 +80,11 @@ function currentArt(n) {
     showArt(artIndex = n);
 }
 
+/**
+ * Show one card and hide the rest.
+ *
+ * @param n
+ */
 function showArt(n) {
     let i;
     const cards = lightboxArt.getElementsByTagName('article');
@@ -96,6 +101,40 @@ function showArt(n) {
         console.log('The lightbox is ready')
     } else cards[artIndex - 1].style.display = "block";
 }
+
+
+/**
+ * Lightbox keyboard navigation.
+ */
+/*document.addEventListener('keydown', (key) => {
+    if (key.code === 'ArrowLeft') {
+        moveArt(-1);
+    }
+    if (key.code === 'ArrowRight') {
+        moveArt(1);
+    }
+
+    if (key.code === 'Escape') {
+        closeLightbox()
+    }
+});*/
+
+document.addEventListener('keydown', (key) => {
+    switch (key.code) {
+        case 'ArrowLeft':
+            moveArt(-1);
+            break;
+        case 'ArrowRight':
+            moveArt(1);
+            break;
+        case 'Escape':
+            closeLightbox();
+            break;
+        default:
+            break;
+
+    }
+});
 
 
 /*
