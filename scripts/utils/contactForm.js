@@ -16,11 +16,12 @@ const minimumNameLength = 2;
 const minimumMessageLength = 9;
 
 /**
- * Display modal.
+ * Display modal and focus on the first name input.
  */
 function displayModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "block";
+    document.getElementById("first_name").focus();
 }
 
 /**
@@ -187,6 +188,14 @@ function setBorderToValid(element) {
     element.classList.add('border-valid');
 }
 
+/**
+ * Close contact modal through keyboard.
+ */
+document.addEventListener('keydown', (key) => {
+    if (key.code === 'Escape') {
+        closeModal()
+    }
+});
 
 // Prevent page from reloading on button submit
 /*document.getElementById("modal_submit_button").addEventListener("click",

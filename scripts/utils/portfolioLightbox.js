@@ -6,7 +6,6 @@
 const lightbox = document.getElementById('portfolio_lightbox');
 const lightboxArt = document.getElementById('portfolio_lightbox_content-art');
 
-
 /**
  * Prep up and open the lightbox.
  */
@@ -30,9 +29,12 @@ function closeLightbox() {
 function prepLightbox() {
     // Copy cards.
     let cards = document.getElementsByClassName('photographer_media_art');
+    let images = document.querySelectorAll('.photographer_media_art img');
     Array.from(cards).forEach((card, index) => {
-        card.setAttribute('onclick', 'currentArt(' + (index + 1) + ')')
+        card.setAttribute('onclick', 'currentArt(' + (index + 1) + ')');
+        card.setAttribute('aria-label', 'Image closeup view');
     });
+
     lightboxArt.innerHTML = '';
     lightboxArt.innerHTML = document.getElementById("photographer_media").innerHTML;
 
@@ -106,36 +108,53 @@ function showArt(n) {
 /**
  * Lightbox keyboard navigation.
  */
-/*document.addEventListener('keydown', (key) => {
-    if (key.code === 'ArrowLeft') {
-        moveArt(-1);
-    }
-    if (key.code === 'ArrowRight') {
-        moveArt(1);
+document.onkeydown = lightboxKeyPress;
+
+/**
+ * Capture keypresses on the lightbox.
+ *
+ * @param key
+ */
+function lightboxKeyPress(key) {
+    try {
+        if (key.code === 'ArrowLeft') {
+            moveArt(-1);
+        }
+        if (key.code === 'ArrowRight') {
+            moveArt(1);
+        }
+
+        if (key.code === 'Escape') {
+            closeLightbox()
+        }
+    } catch {
+        console.log('The lightbox is empty');
     }
 
-    if (key.code === 'Escape') {
-        closeLightbox()
+}
+
+/*document.addEventListener('keydown', (key) => {
+    try {
+        switch (key.code) {
+            case 'ArrowLeft':
+                moveArt(-1);
+                break;
+            case 'ArrowRight':
+                moveArt(1);
+                break;
+            case 'Escape':
+                closeLightbox();
+                break;
+            default:
+                break;
+        }
+    } catch {
+        console.log('The lightbox is empty')
     }
 });*/
 
-document.addEventListener('keydown', (key) => {
-    switch (key.code) {
-        case 'ArrowLeft':
-            moveArt(-1);
-            break;
-        case 'ArrowRight':
-            moveArt(1);
-            break;
-        case 'Escape':
-            closeLightbox();
-            break;
-        default:
-            break;
 
-    }
-});
-
+////////////////////////
 
 /*
 /!**

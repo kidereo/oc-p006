@@ -40,6 +40,7 @@ function mediaFactory(data) {
 
         divMediaArt.classList.add("photographer_media_art");
         divCounter.classList.add("photographer_media_legend-counter");
+        divCounter.setAttribute("aria-label", 'Likes');
         divCounter.append(counter, fontAwesome);
         divMediaLegend.classList.add("photographer_media_legend");
         divMediaLegend.append(h2, divCounter);
@@ -49,7 +50,7 @@ function mediaFactory(data) {
             Object.assign(img, {
                 src: mediumPhoto,
                 alt: title,
-                //title: title
+                tabIndex: 0
             });
             img.setAttribute('onClick', 'openLightbox()');
             divMediaArt.appendChild(img);
