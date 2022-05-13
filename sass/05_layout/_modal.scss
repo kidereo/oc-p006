@@ -14,7 +14,9 @@
 
 .modal {
   position: absolute;
-  top: 85px;
+  max-height: 90%;
+  overflow: auto;
+  top: 5%;
   left: 10px;
   right: 10px;
   z-index: 100;

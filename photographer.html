@@ -86,6 +86,7 @@
                     <img src="assets/icons/close.svg" alt="Close modal" onclick="closeModal()"/>
                 </header>
                 <br><br>
+                <span tabindex="1" onFocus="document.querySelector('.autofocus2').focus()"></span>
                 <form
                         id="contact_form"
                         name="contact"
@@ -100,10 +101,12 @@
                          data-error-visible=false>
                         <label for="first_name">Prénom</label>
                         <input
-                                class="contact_form_data_input"
+                                class="contact_form_data_input autofocus1"
                                 type="text"
                                 id="first_name"
                                 name="first_name"
+                                tabindex="2"
+                                autofocus
                         />
                     </div>
 
@@ -118,6 +121,7 @@
                                 type="text"
                                 id="surname"
                                 name="surname"
+                                tabindex="3"
                         />
                     </div>
 
@@ -131,6 +135,7 @@
                                 type="email"
                                 id="email"
                                 name="email"
+                                tabindex="4"
                         />
                     </div>
 
@@ -139,14 +144,16 @@
                          data-error="Please make sure that your message is at least 10 characters long!"
                          data-error-visible=false>
                         <label for="message">Votre message</label>
-                        <textarea class="contact_form_data_input"
+                        <textarea class="contact_form_data_input autofocus2"
                                   rows="5"
                                   id="message"
-                                  name="message"></textarea>
+                                  name="message"
+                                  tabindex="5"></textarea>
                     </div>
 
-                    <button id="modal_submit_button" class="contact_button">Envoyer</button>
+                    <button id="modal_submit_button" class="contact_button" tabindex="6">Envoyer</button>
                 </form>
+                <span tabindex="7" onFocus="document.querySelector('.autofocus1').focus()">></span>
             </div>
         </div>
     </div>
