@@ -31,13 +31,17 @@ function mediaFactory(data) {
         const pDate = document.createElement("p");
         const i = document.createElement("i");
         const divMediaArt = document.createElement("div");
+        const link = document.createElement("a");
+
+        // Add attributes to the link
+        Object.assign(link, {
+            href: "javascript:openLightbox()"
+        });
 
         // Hydrate common elements
         h2.textContent = title;
         counter.textContent = likes;
-
         fontAwesome.classList.add("far", "fa-heart");
-
         divMediaArt.classList.add("photographer_media_art");
         divCounter.classList.add("photographer_media_legend-counter");
         divCounter.setAttribute("aria-label", 'Likes');
@@ -53,19 +57,24 @@ function mediaFactory(data) {
                 tabIndex: 0
             });
             img.setAttribute('onClick', 'openLightbox()');
+            img.setAttribute('onkeypress', 'onKeyPress(event)');
+            //link.appendChild(img);
             divMediaArt.appendChild(img);
         } else if (data.hasOwnProperty('video')) {
             Object.assign(vid, {
                 src: mediumVideo,
                 alt: title,
-                title: title
+                title: title,
+                tabIndex: 0
             });
             vid.setAttribute('type', 'video/mp4');
             vid.setAttribute('onClick', 'openLightbox()');
+            vid.setAttribute('onkeypress', 'onKeyPress(event)');
             vid.setAttribute('controls', 'controls');
             vid.setAttribute('autoplay', 'autoplay');
             vid.setAttribute('loop', 'loop');
             //vid.setAttribute('poster', 'assets/images/circle-loader.gif');
+            //link.appendChild(vid);
             divMediaArt.appendChild(vid);
             i.classList.add("far", "fa-play-circle", "photographer_media-i");
             article.appendChild(i);
@@ -74,7 +83,7 @@ function mediaFactory(data) {
                 src: placeholderImage,
                 alt: "No image"
             });
-            //img.setAttribute('onClick', 'openLightbox()');
+            img.setAttribute('onClick', 'openLightbox()');
             divMediaArt.appendChild(img);
         }
 
@@ -82,7 +91,6 @@ function mediaFactory(data) {
         divMediaDate.classList.add("photographer_media_legend-date");
         pDate.textContent = date;
         divMediaDate.appendChild(pDate);
-
 
         // Append article legend and click listeners
         //article.appendChild(media);
