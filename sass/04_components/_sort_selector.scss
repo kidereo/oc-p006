@@ -6,14 +6,13 @@
   display: none;
 
   label {
-    font-size: larger;
+    font-size: x-large;
     font-weight: 600;
     margin-right: 10px;
   }
 
   select {
-    border: none;
-    outline: none;
+    border: 3px solid $colour-font-secondary;
     font-size: larger;
     width: 200px;
     height: 50px;
@@ -22,14 +21,7 @@
     border-radius: 5px;
     padding: 5px;
     cursor: pointer;
-    //transition: 500ms;
     margin: 0;
-
-    &:hover {
-      //transform: scale(1.05);
-      //color: black;
-      //background-color: $colour-background-secondary;
-    }
   }
 }
 

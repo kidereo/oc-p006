@@ -34,7 +34,7 @@
         </div>
 
         <div class="sort_radio_container">
-           <!-- <p>Trier par</p>-->
+            <!-- <p>Trier par</p>-->
             <fieldset name="radio_container" id="radio_container" class="radio_container">
                 <legend>Trier par</legend>
                 <div class="radio_options">
@@ -63,12 +63,16 @@
             <select name="selector"
                     id="selector"
                     aria-label="Sort by"
-                    tabindex="4">
+                    tabindex="0"
+            >
                 <option value="reset">Sélectionner</option>
                 <option value="likes">Popularité</option>
                 <option value="dates">Date</option>
                 <option value="title">Titre</option>
             </select>
+            <div class="sort_selector_nav_prompt" id="sort_selector_nav_prompt"><i
+                    class="fas fa-chevron-circle-left"></i>Use UP and DOWN to sort
+            </div>
         </div>
 
         <div class="photographer_media" id="photographer_media"></div>
@@ -162,7 +166,8 @@
 
         <div class="portfolio_lightbox_wrapper">
             <div class="portfolio_lightbox_content">
-                <div onClick="closeLightbox()" class="close_lightbox" aria-label="Close Lightbox"><i class="fas fa-times"></i></div>
+                <div onClick="closeLightbox()" class="close_lightbox" aria-label="Close Lightbox"><i
+                        class="fas fa-times"></i></div>
                 <i id="portfolio_lightbox_arrow-left" class="fas fa-chevron-left" onclick="moveArt(-1)"></i>
                 <div id="portfolio_lightbox_content-art" class="portfolio_lightbox_content-art"></div>
                 <i id="portfolio_lightbox_arrow-right" class="fas fa-chevron-right" onclick="moveArt(1)"></i>
