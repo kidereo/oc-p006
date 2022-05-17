@@ -123,6 +123,12 @@ document.onkeydown = lightboxKeyPress;
 function lightboxKeyPress(key) {
     try {
         switch (key.code) {
+            case 'Tab':
+                if (key.shiftKey) {
+                    moveArt(-1);
+                } else
+                    moveArt(1);
+                break;
             case 'ArrowLeft':
                 moveArt(-1);
                 break;
