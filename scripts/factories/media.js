@@ -1,3 +1,5 @@
+let funcName;
+
 /**
  * Build up portfolio cards on photographer pages.
  *
@@ -42,6 +44,7 @@ function mediaFactory(data) {
         h2.textContent = title;
         counter.textContent = likes;
         fontAwesome.classList.add("far", "fa-heart");
+        fontAwesome.setAttribute("tabindex", "0");
         divMediaArt.classList.add("photographer_media_art");
         divCounter.classList.add("photographer_media_legend-counter");
         divCounter.setAttribute("aria-label", 'Likes');
@@ -99,6 +102,8 @@ function mediaFactory(data) {
         article.appendChild(divMediaDate);
         fontAwesome.addEventListener("click", toggleLikes);
         fontAwesome.addEventListener("click", reorderLikes);
+        fontAwesome.addEventListener("keypress", toggleLikes);
+        //fontAwesome.addEventListener("keypress", reorderLikes);
 
         return article;
     }
@@ -128,5 +133,9 @@ function mediaFactory(data) {
             counter.textContent = ++artLikes;
             tab.textContent = ++tabLikes;
         }
+        funcName = toggleLikes;
     }
 }
+
+
+
