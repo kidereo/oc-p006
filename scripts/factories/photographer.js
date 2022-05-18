@@ -2,7 +2,7 @@
  * Build up photographers' cards on index.
  *
  * @param data
- * @returns {{name: *, getUserCardDOM: (function(): HTMLElement), picture: string}}
+ * @returns {{getUserCardDOM: (function(): HTMLElement), picture: string}}
  */
 function photographerFactory(data) {
     // Construct data

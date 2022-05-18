@@ -196,10 +196,3 @@ document.addEventListener('keydown', (key) => {
         closeModal()
     }
 });
-
-// Prevent page from reloading on button submit
-/*document.getElementById("modal_submit_button").addEventListener("click",
-    function (event) {
-        event.preventDefault();
-        closeModal();
-    });*/

@@ -1,5 +1,3 @@
-let funcName;
-
 /**
  * Build up portfolio cards on photographer pages.
  *
@@ -49,6 +47,7 @@ function mediaFactory(data) {
         divCounter.classList.add("photographer_media_legend-counter");
         divCounter.setAttribute("aria-label", 'Likes');
         divCounter.append(counter, fontAwesome);
+        divCounter.setAttribute('aria-label', 'Hit ENTER to add or remove likes');
         divMediaLegend.classList.add("photographer_media_legend");
         divMediaLegend.append(h2, divCounter);
 
@@ -61,6 +60,7 @@ function mediaFactory(data) {
             });
             img.setAttribute('onClick', 'openLightbox()');
             img.setAttribute('onkeypress', 'onKeyPress(event)');
+            img.setAttribute('aria-label', 'Hit ENTER to see closeup view');
             //link.appendChild(img);
             divMediaArt.appendChild(img);
         } else if (data.hasOwnProperty('video')) {
@@ -76,6 +76,7 @@ function mediaFactory(data) {
             vid.setAttribute('controls', 'controls');
             vid.setAttribute('autoplay', 'autoplay');
             vid.setAttribute('loop', 'loop');
+            vid.setAttribute('aria-label', 'Hit ENTER to see closeup view');
             //vid.setAttribute('poster', 'assets/images/circle-loader.gif');
             //link.appendChild(vid);
             divMediaArt.appendChild(vid);
@@ -87,6 +88,7 @@ function mediaFactory(data) {
                 alt: "No image"
             });
             img.setAttribute('onClick', 'openLightbox()');
+            img.setAttribute('aria-label', 'No image');
             divMediaArt.appendChild(img);
         }
 
@@ -133,7 +135,6 @@ function mediaFactory(data) {
             counter.textContent = ++artLikes;
             tab.textContent = ++tabLikes;
         }
-        funcName = toggleLikes;
     }
 }
 

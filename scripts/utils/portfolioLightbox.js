@@ -12,6 +12,8 @@ const lightboxArt = document.getElementById('portfolio_lightbox_content-art');
 function openLightbox() {
     prepLightbox();
     lightbox.classList.remove('hidden');
+    document.addEventListener('keydown', lightboxKeyPress);
+    document.addEventListener('keydown', disableTab);
 }
 
 /**
@@ -20,6 +22,8 @@ function openLightbox() {
 function closeLightbox() {
     lightbox.classList.add('hidden');
     lightboxArt.innerHTML = '';
+    document.removeEventListener('keydown', lightboxKeyPress);
+    document.removeEventListener('keydown', disableTab);
 }
 
 /**
@@ -29,23 +33,24 @@ function closeLightbox() {
 function prepLightbox() {
     // Add onclick (for mouse) and onkeypress (for keyboard) indexes to media articles.
     let cards = document.getElementsByClassName('photographer_media_art');
-    let images = document.querySelectorAll('.photographer_media_art a img');
+    let images = document.querySelectorAll('.photographer_media_art img');
     Array.from(cards).forEach((card, index) => {
         card.setAttribute('onclick', 'currentArt(' + (index + 1) + ')');
         card.setAttribute('onkeypress', 'currentArt(' + (index + 1) + ')');
-        //card.setAttribute('aria-label', 'Image closeup view');
     });
 
     // Copy cards into the lightbox.
     lightboxArt.innerHTML = '';
     lightboxArt.innerHTML = document.getElementById("photographer_media").innerHTML;
 
-    // Remove onclick from copied cards.
+    // Remove onclick from copied cards and add aria-label and tabindex.
     let copiedCards = document
         .getElementById('portfolio_lightbox_content-art')
         .getElementsByClassName('photographer_media_art');
-    Array.from(copiedCards).forEach((copiedCard) => {
+    Array.from(copiedCards).forEach((copiedCard, index) => {
         copiedCard.firstChild.removeAttribute('onclick');
+        copiedCard.firstChild.setAttribute('aria-label', 'Image closeup view');
+        copiedCard.firstChild.setAttribute('tabindex', index + 1);
     });
 
     // Remove <a> tag from around images.
@@ -107,13 +112,16 @@ function showArt(n) {
     }
     if (artIndex === 0) {
         console.log('The lightbox is ready')
-    } else cards[artIndex - 1].style.display = "block";
+    } else {
+        cards[artIndex - 1].style.display = "block";
+    }
 }
 
 /**
  * Lightbox keyboard navigation.
  */
-document.onkeydown = lightboxKeyPress;
+
+//document.onkeydown = lightboxKeyPress;
 
 /**
  * Capture keypresses on the lightbox.
@@ -154,5 +162,17 @@ function lightboxKeyPress(key) {
 function onKeyPress(event) {
     if (event.key === "Enter") {
         openLightbox();
+    }
+}
+
+
+/**
+ * Stop Tab from tabbing in the main document while in the lightbox modal.
+ *
+ * @param event
+ */
+function disableTab(event){
+    if(event.code === 'Tab') {
+        event.preventDefault();
     }
 }
