@@ -6,7 +6,7 @@
  */
 function mediaFactory(data) {
     // Construct data. Note that you need different paths for videos and images.
-    const {id, photographerId, title, image, video, likes, date, price} = data;
+    const {photographerId, title, image, video, likes, date} = data;
     const mediumPhoto = `media/${photographerId}/${image}`;
     const mediumVideo = `media/${photographerId}/${video}`;
     const placeholderImage = "assets/images/image-not-found.png";
@@ -52,7 +52,7 @@ function mediaFactory(data) {
         divMediaLegend.append(h2, divCounter);
 
         // Hydrate visuals depending on image or video
-        if (data.hasOwnProperty('image')) {
+        if (Object.hasOwnProperty.call(data, 'image')) {
             Object.assign(img, {
                 src: mediumPhoto,
                 alt: title,
@@ -63,7 +63,7 @@ function mediaFactory(data) {
             img.setAttribute('aria-label', 'Hit ENTER to see closeup view');
             //link.appendChild(img);
             divMediaArt.appendChild(img);
-        } else if (data.hasOwnProperty('video')) {
+        } else if (Object.hasOwnProperty.call(data, 'video')) {
             Object.assign(vid, {
                 src: mediumVideo,
                 alt: title,
@@ -137,6 +137,3 @@ function mediaFactory(data) {
         }
     }
 }
-
-
-

@@ -1,0 +1,17 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "no-console": "off",
+    "func-style": ["warn", "declaration"],
+    "no-undef": "off",
+    "no-unused-vars": "warn",
+    "no-useless-escape": "warn"
+  }
+}

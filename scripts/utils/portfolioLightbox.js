@@ -150,7 +150,7 @@ function lightboxKeyPress(key) {
                 break;
         }
     } catch {
-        console.log('The lightbox is empty')
+        console.log('The lightbox is empty');
     }
 }
 
@@ -165,14 +165,13 @@ function onKeyPress(event) {
     }
 }
 
-
 /**
  * Stop Tab from tabbing in the main document while in the lightbox modal.
  *
  * @param event
  */
-function disableTab(event){
-    if(event.code === 'Tab') {
+function disableTab(event) {
+    if (event.code === 'Tab') {
         event.preventDefault();
     }
 }
